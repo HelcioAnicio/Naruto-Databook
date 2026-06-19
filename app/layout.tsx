@@ -17,7 +17,7 @@ const barlowCondensed = Barlow_Condensed({
 
 export const metadata: Metadata = {
   title: "Universo de Naruto",
-  description: "Tudo do universo Marvel",
+  description: "Tudo do universo Naruto",
   icons: "/favicon.ico",
 };
 
