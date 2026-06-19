@@ -3,7 +3,7 @@
 :root {
   --background: #1a1614;
   --foreground: #ffffff;
-  --primary: #f0141e;
+  --primary: #c0392b;
   --popover: #26211e;
 }
 
@@ -16,7 +16,9 @@
   --font-barlow: var(--font-barlow-condensed);
 }
 
+html,
 body {
-  /* color: var(--foreground); */
-  /* font-family: Arial, Helvetica, sans-serif; */
+  height: 100%;
+  /* color: var(--foreground); 
+  font-family: Arial, Helvetica, sans-serif; */
 }

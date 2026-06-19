@@ -29,9 +29,9 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${geistSans.variable} ${barlowCondensed.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${barlowCondensed.variable} antialiased`}
     >
-      <body className="bg-background text-foreground font-barlow flex min-h-screen flex-col">
+      <body className="bg-background text-foreground font-barlow flex flex-col">
         {children}
       </body>
     </html>

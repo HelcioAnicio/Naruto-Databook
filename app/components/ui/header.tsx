@@ -7,8 +7,8 @@ export const Header = () => {
   const links = LinksHeader();
 
   return (
-    <header className="px-4 py-5">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between">
+    <header className="py-5">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4">
         <Image src="/logo.svg" alt="logo" width={80} height={80} />
 
         <ul className="hidden items-center justify-end gap-10 font-light uppercase lg:flex">
