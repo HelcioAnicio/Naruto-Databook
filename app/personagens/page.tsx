@@ -2,22 +2,27 @@
 import { Header } from "@/app/components/ui/header";
 import { Stripe } from "@/app/components/ui/stripe";
 import { Footer } from "@/app/components/ui/Footer";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { Character } from "../types/character";
+import Image from "next/image";
 
 export default function PersonagensPage() {
-  const [characters, setCharacters] = useState(null);
-  console.log("characters before: ", characters);
+  const [characters, setCharacters] = useState<Character[] | null>(null);
+  console.log("characters: ", characters);
+
+  const [slide, setSlide] = useState(0);
 
   useEffect(() => {
     async function searchData() {
       try {
-        const response = await fetch("https://api.jikan.moe/v4/anime/");
+        const response = await fetch(
+          "https://dattebayo-api.onrender.com/characters",
+        );
         const data = await response.json();
-        setCharacters(data);
+        setCharacters(data.characters);
       } catch (erro) {
         console.log("erro: ", erro);
       }
-      console.log("characters set: ", characters);
     }
     searchData();
   }, []);
@@ -37,6 +42,29 @@ export default function PersonagensPage() {
             </h2>
           </div>
           {/* Renderize FilterChips e CharacterCard aqui com seus dados */}
+          <ul className="flex flex-wrap gap-5">
+            {characters !== null &&
+              characters.map((character, index) => {
+                return (
+                  <li
+                    className="max-w-50 min-w-24 flex-1 lg:max-w-72"
+                    key={index}
+                  >
+                    <figure>
+                      <Image
+                        src={character.images[0]}
+                        width={120}
+                        height={150}
+                        alt={character.name}
+                      />
+                    </figure>
+                    {character.name}
+
+                    <div className="mt-2"></div>
+                  </li>
+                );
+              })}
+          </ul>
         </div>
       </main>
       <Footer />
